@@ -12,6 +12,8 @@ module.exports = {
     knowInfo: 'Here\'s what we know:',
     usedAddress: '- We used the address: `${host}:${port}`',
     checkReturned: '- The check returned: `Unable to connect`',
-    supportMessage: '- Tag [@${admin}](https://discord.com/users/${admin}) for more help'
+    supportMessage: '- Tag [@${admin}](https://discord.com/users/${admin}) for more help',
+    usersConnected: 'Users Connected',
+    noUsersConnected: 'No Users Connected',
   },
 };

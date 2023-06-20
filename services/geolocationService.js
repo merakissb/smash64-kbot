@@ -7,7 +7,6 @@ async function geolocationService() {
     const location = `${data.country} - ${data.city}`;
     return location;
   } catch (error) {
-    console.error('Error fetching client location:', error);
     return 'Unknown Location';
   }
 }

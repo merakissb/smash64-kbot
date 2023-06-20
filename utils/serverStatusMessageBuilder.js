@@ -1,4 +1,5 @@
 const { messages } = require('../locales/en');
+const { colors } = require('./colors');
 
 function buildServerStatusMessage(name, alive, responseTime, clientLocation, host, port, admin) {
   const title = alive ? messages.serverResponding : messages.serverNotResponding;
@@ -20,7 +21,7 @@ function buildServerStatusMessage(name, alive, responseTime, clientLocation, hos
         },
       ];
 
-  const color = alive ? 0x4cae4e : 0xff0000;
+  const color = alive ? colors.success : colors.error;
 
   return {
     embed: {
