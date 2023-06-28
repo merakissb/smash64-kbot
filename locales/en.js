@@ -14,6 +14,6 @@ module.exports = {
     checkReturned: '- The check returned: `Unable to connect`',
     supportMessage: '- Tag [@${admin}](https://discord.com/users/${admin}) for more help',
     usersConnected: 'Users Connected',
-    noUsersConnected: 'No Users Connected',
+    noUsersConnected: 'No users connected to the server',
   },
 };

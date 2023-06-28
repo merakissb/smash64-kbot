@@ -16,8 +16,16 @@ module.exports = {
     const { alive, responseTime } = await pingService(host, port);
     const clientLocation = await geolocationService();
 
-    const message = buildServerStatusMessage(name, alive, responseTime, clientLocation, host, port, admin);
+    const message = buildServerStatusMessage(
+      name,
+      alive,
+      responseTime,
+      clientLocation,
+      host,
+      port,
+      admin
+    );
 
-    await interaction.editReply({ embeds: [message.embed] });
+    await interaction.editReply({ embeds: [message.embed], components: [message.components] });
   },
 };

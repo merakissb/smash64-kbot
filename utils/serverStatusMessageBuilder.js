@@ -1,7 +1,17 @@
 const { messages } = require('../locales/en');
-const { colors } = require('./colors');
+const { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
+const colors = require('./colors');
 
 function buildServerStatusMessage(name, alive, responseTime, clientLocation, host, port, admin) {
+
+  const row = new ActionRowBuilder()
+  .addComponents(
+    new ButtonBuilder()
+      .setCustomId(`copy:${host}:${port}`)
+      .setLabel('Copy Address')
+      .setStyle(ButtonStyle.Success)
+  );
+
   const title = alive ? messages.serverResponding : messages.serverNotResponding;
   const description = alive
     ? messages.serverTook.replace('${name}', name).replace('${responseTime}', responseTime).replace('${clientLocation}', clientLocation)
@@ -29,8 +39,8 @@ function buildServerStatusMessage(name, alive, responseTime, clientLocation, hos
       title,
       description,
       fields,
-      timestamp: new Date(),
     },
+    components: row,
   };
 }
 
