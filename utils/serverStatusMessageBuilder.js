@@ -4,13 +4,16 @@ const colors = require('./colors');
 
 function buildServerStatusMessage(name, alive, responseTime, clientLocation, host, port, admin) {
 
-  const row = new ActionRowBuilder()
-  .addComponents(
-    new ButtonBuilder()
-      .setCustomId(`copy:${host}:${port}`)
-      .setLabel('Copy Address')
-      .setStyle(ButtonStyle.Success)
-  );
+  let row = null;
+
+  if (alive) {
+    row = new ActionRowBuilder().addComponents(
+      new ButtonBuilder()
+        .setCustomId(`copy:${host}:${port}`)
+        .setLabel('Copy Address')
+        .setStyle(ButtonStyle.Success)
+    );
+  }
 
   const title = alive ? messages.serverResponding : messages.serverNotResponding;
   const description = alive
@@ -40,7 +43,7 @@ function buildServerStatusMessage(name, alive, responseTime, clientLocation, hos
       description,
       fields,
     },
-    components: row,
+    components: row ? [row] : null ,
   };
 }
 

@@ -26,6 +26,6 @@ module.exports = {
       admin
     );
 
-    await interaction.editReply({ embeds: [message.embed], components: [message.components] });
+    await interaction.editReply({ embeds: [message.embed], components: message.components });
   },
 };
